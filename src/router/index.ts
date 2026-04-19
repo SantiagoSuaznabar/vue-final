@@ -1,10 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '@/views/LoginView.vue'
-import NoteList from '@/views/note/NoteList.vue'
 import RegisterView from '@/views/RegisterView.vue'
-import UserList from '@/views/user/UserList.vue'
-import UserNote from '@/views/user/UserNote.vue'
+
+
+import PortfolioList from '@/views/portfolio/PortfolioList.vue'
+import PortfolioDetail from '@/views/portfolio/PortfolioDetail.vue'
+
 import { isLogin } from '@/services/authService';
 
 const router = createRouter({
@@ -14,14 +16,6 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue'),
     },
     {
       path: '/register',
@@ -34,31 +28,33 @@ const router = createRouter({
       component: LoginView,
     },
     {
-      path: '/usuarios',
-      name: 'usuarios',
-      component: UserList,
+      path: '/portafolios',
+      name: 'portafolios',
+      component: PortfolioList,
       meta: { requiresAuth: true },
     },
     {
-      path: '/usuario/:id/notes',
-      name: 'usuarioNote',
-      component: UserNote,
+      path: '/portafolio/:id',
+      name: 'portfolioDetail',
+      component: PortfolioDetail,
       props: true,
       meta: { requiresAuth: true },
     },
     {
-      path: '/notes',
-      name: 'notes',
-      component: NoteList,
-      meta: { requiresAuth: true },
+      path: '/about',
+      name: 'about',
+      component: () => import('../views/AboutView.vue'),
     },
   ],
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.path === '/login' && isLogin()) {
+  const publicPages = ['/login', '/register', '/', '/about'];
+  const authRequired = !publicPages.includes(to.path);
+  const loggedIn = isLogin();
+  if (to.path === '/login' && loggedIn) {
     next('/')
-  } else if (to.meta.requiresAuth && !isLogin()) {
+  } else if (authRequired && !loggedIn) {
     next('/login')
   } else {
     next()

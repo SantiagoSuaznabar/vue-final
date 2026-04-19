@@ -1,5 +1,5 @@
 <script setup>
-    import {isLogin} from '@/services/authService';
+    import { isLogin } from '@/services/authService';
     import appMemory from '@/services/appMemory';
 
     const logout = () => {
@@ -9,38 +9,41 @@
 </script>
 
 <template>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" >
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <router-link to="/" class="navbar-brand">TODO</router-link>
+            <router-link to="/" class="navbar-brand">CRYPTO-TRACKER</router-link>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                    data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <router-link to="/usuarios" class="nav-link">Usuarios</router-link>
+                        <router-link to="/" class="nav-link">Inicio</router-link>
                     </li>
-                    <li class="nav-item">
-                        <router-link to="/notes" class="nav-link">Notas</router-link>
+                    <li class="nav-item" v-if="isLogin()">
+                        <router-link to="/portafolios" class="nav-link">Mis Portafolios</router-link>
                     </li>
                 </ul>
 
-              <div>
-                <div class="nav-item" v-if="isLogin()">
-                  {{appMemory.get('userName')}}
-                  <router-link to="/" class="nav-link" @click="logout()">Cerrar sesión</router-link>
+                <div class="d-flex align-items-center">
+                    <div v-if="isLogin()" class="text-light">
+                        <span class="me-3">Hola, {{ appMemory.get('userName') }}</span>
+                        <button class="btn btn-outline-danger btn-sm" @click="logout()">Salir</button>
+                    </div>
+                    <div v-else>
+                        <router-link to="/login" class="btn btn-outline-success btn-sm me-2">Login</router-link>
+                        <router-link to="/register" class="btn btn-success btn-sm">Registro</router-link>
+                    </div>
                 </div>
-                <div class="nav-item" v-else>
-                  <router-link to="/login" class="nav-link" >Iniciar sesión</router-link>
-                </div>
-              </div>
-
             </div>
-
-
         </div>
     </nav>
 </template>
+
+<style scoped>
+.navbar-brand {
+    font-weight: bold;
+    color: #42b883 !important;
+}
+</style>

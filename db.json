@@ -13,6 +13,12 @@
       "userId": 1,
       "name": "Inversión a Largo Plazo",
       "description": "Hold de criptomonedas principales"
+    },
+    {
+      "userId": 1,
+      "name": "Fondos",
+      "description": "Hold de Stablecoins",
+      "id": 2
     }
   ],
   "assets": [
@@ -23,7 +29,18 @@
       "symbol": "BTC",
       "amount": 0.5,
       "purchasePrice": 65000,
+      "type": "Coin",
       "date": "2026-04-10"
+    },
+    {
+      "portfolioId": 1,
+      "coin": "Ethereum",
+      "symbol": "ETH",
+      "amount": 5,
+      "purchasePrice": 10,
+      "type": "Coin",
+      "date": "2026-04-19",
+      "id": 2
     }
   ]
 }
