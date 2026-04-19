@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "email": "santi@gmail.com",
+      "password": "$2a$10$Afyj2uICUsI0zXibNq/.4uXu8J.iTy91T/j.QXkhGI5ICNqXXTv9.",
+      "name": "santi",
+      "id": 1
+    }
+  ],
+  "portfolios": [
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "Inversión a Largo Plazo",
+      "description": "Hold de criptomonedas principales"
+    }
+  ],
+  "assets": [
+    {
+      "id": 1,
+      "portfolioId": 1,
+      "coin": "Bitcoin",
+      "symbol": "BTC",
+      "amount": 0.5,
+      "purchasePrice": 65000,
+      "date": "2026-04-10"
+    }
+  ]
+}

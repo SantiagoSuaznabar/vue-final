@@ -1,0 +1,56 @@
+{
+  "users": [
+    {
+      "email": "sergio@email.com",
+      "password": "$2a$10$g2Jxbmg5TDUVZp.8timXSOYZil6YMGhqxserGdVzHJKZUyNe5Wqhu",
+      "name": "sergio",
+      "id": 1
+    },
+    {
+      "email": "pedro@email.com",
+      "password": "$2a$10$KU8Wkv6rECyNMgbbCGuTH.CylfkmA/oGOd8RZRxoa.UclaKGMCTAO",
+      "name": "pedro arze",
+      "id": 2
+    },
+    {
+      "email": "santi@gmail.com",
+      "password": "$2a$10$Afyj2uICUsI0zXibNq/.4uXu8J.iTy91T/j.QXkhGI5ICNqXXTv9.",
+      "name": "santi",
+      "id": 3
+    }
+  ],
+  "notes": [
+    {
+      "userId": 1,
+      "title": "nota 1",
+      "content": "contenido nota 1",
+      "completed": true,
+      "createdAt": "2026-04-02",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "title": "titulo 2",
+      "content": "contenido titulo 2",
+      "completed": true,
+      "createdAt": "2026-04-02",
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "title": "nota de pedro",
+      "content": "contenido de pedro",
+      "completed": false,
+      "createdAt": "2026-04-03",
+      "id": 3
+    },
+    {
+      "userId": 3,
+      "title": "Ti1",
+      "content": "Co1",
+      "completed": true,
+      "createdAt": "2026-04-19",
+      "id": 4
+    }
+  ]
+}
