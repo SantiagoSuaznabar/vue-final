@@ -41,6 +41,26 @@
       "type": "Coin",
       "date": "2026-04-19",
       "id": 2
+    },
+    {
+      "portfolioId": 2,
+      "coin": "USD Coin",
+      "symbol": "USDC",
+      "amount": 50,
+      "purchasePrice": 50,
+      "type": "Stablecoin",
+      "date": "2026-04-20",
+      "id": 3
+    },
+    {
+      "portfolioId": 2,
+      "coin": "Tether",
+      "symbol": "USDT",
+      "amount": 100,
+      "purchasePrice": 100,
+      "type": "Stablecoin",
+      "date": "2026-04-20",
+      "id": 4
     }
   ]
 }

@@ -1,20 +1,42 @@
-@import './base.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+:root {
+  --primary-color: #42b883;
+  --secondary-color: #35495e;
+  --bg-color: #f8f9fa;
+  --text-color: #2c3e50;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
 }
 
-@media (min-width: 1024px) {
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  background-color: white;
+}
 
+.btn-primary, .btn-success {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover, .btn-success:hover {
+  background-color: #33a06f;
+  border-color: #33a06f;
+}
+
+.table-dark {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.form-control, .form-select {
+  border-radius: 8px;
 }

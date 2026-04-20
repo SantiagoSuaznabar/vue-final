@@ -1,104 +1,68 @@
 <template>
-  <section class="about">
-    <h1>Acerca del Proyecto</h1>
+  <div class="home-container">
+    <div class="hero-section text-center">
+      <h1 class="display-4 fw-bold">Bienvenido a Crypto Tracker</h1>
+      <p class="lead mt-3 text-secondary">
+        Gestiona tu portafolio de criptomonedas, controla tus activos y analiza tus inversiones de forma segura.
+      </p>
+      
+      <div class="mt-5" v-if="!isLogin()">
+        <router-link to="/register" class="btn btn-primary btn-lg me-3">Comenzar ahora</router-link>
+        <router-link to="/login" class="btn btn-outline-secondary btn-lg">Iniciar Sesión</router-link>
+      </div>
+      <div class="mt-5" v-else>
+        <router-link to="/portafolios" class="btn btn-primary btn-lg shadow">Ir a mis Portafolios</router-link>
+      </div>
+    </div>
 
-    <p class="description">
-      Este es un proyecto de ejemplo desarrollado como parte del aprendizaje en clases.
-      Integra diferentes tecnologías modernas del ecosistema frontend para construir
-      una aplicación completa y funcional.
-    </p>
-
-    <p>
-      En este proyecto se aplicaron conceptos como componentes reutilizables,
-      manejo de estado, consumo de APIs y estilos con preprocesadores.
-    </p>
-
-    <h2>📚 Recursos y Tutoriales</h2>
-
-    <ul class="links">
-      <li v-for="link in links" :key="link.name">
-        <a :href="link.url" target="_blank" rel="noopener">
-          {{ link.name }}
-        </a>
-      </li>
-    </ul>
-  </section>
+    <div class="features-section row mt-5 text-center">
+      <div class="col-md-4 mb-4">
+        <div class="card p-4 h-100">
+          <h4 class="mt-3">Multiples Portafolios</h4>
+          <p class="text-muted">Separa tus inversiones a largo plazo de tus operaciones de trading diario.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4 mb-4">
+        <div class="card p-4 h-100">
+          <h4 class="mt-3">Filtros Avanzados</h4>
+          <p class="text-muted">Encuentra rapidamente tus tokens, stablecoins o monedas principales.</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4 mb-4">
+        <div class="card p-4 h-100">
+          <h4 class="mt-3">Privacidad Segura</h4>
+          <p class="text-muted">Tus datos estan protegidos con autenticacion y tokens encriptados JWT.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
-<script setup lang="ts">
-  interface Link {
-    name: string
-    url: string
-  }
-
-  const links: Link[] = [
-    {
-      name: 'Vue 3 (Documentación oficial)',
-      url: 'https://vuejs.org/'
-    },
-    {
-      name: 'TypeScript',
-      url: 'https://www.typescriptlang.org/'
-    },
-    {
-      name: 'SCSS (Sass)',
-      url: 'https://sass-lang.com/'
-    },
-    {
-      name: 'Axios',
-      url: 'https://axios-http.com/'
-    },
-    {
-      name: 'JSON Server v 0.17.4',
-      url: 'https://www.npmjs.com/package/json-server/v/0.17.4'
-    },
-    {
-      name: 'JSON Server Auth',
-      url: 'https://github.com/jeremyben/json-server-auth'
-    },
-    {
-      name: 'Bootstrap',
-      url: 'https://getbootstrap.com/'
-    }
-  ]
+<script setup>
+import { isLogin } from '@/services/authService';
 </script>
 
-<style scoped lang="scss">
-  .about {
-    padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
+<style scoped>
+.home-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
 
-    h1 {
-      margin-bottom: 1rem;
-    }
+.hero-section {
+  padding: 3rem 0;
+}
 
-    .description {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
+.icon {
+  font-size: 3.5rem;
+}
 
-    h2 {
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-    }
+.features-section .card {
+  transition: transform 0.3s ease;
+}
 
-    .links {
-      list-style: none;
-      padding: 0;
-
-      li {
-        margin-bottom: 0.5rem;
-
-        a {
-          color: #42b883;
-          text-decoration: none;
-
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-      }
-    }
-  }
+.features-section .card:hover {
+  transform: translateY(-10px);
+}
 </style>
